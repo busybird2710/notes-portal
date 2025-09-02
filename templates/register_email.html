@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Register with Email - Notes Portal{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Create an Account with Email</h2>
+    <form action="{{ url_for('register_email') }}" method="post" onsubmit="return validateForm()">
+        <label for="username">Email Address:</label>
+        <input type="email" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <p class="validation-message" id="password-validation">
+            Password must be at least 8 characters long.
+        </p>
+        <button type="submit">Create Account</button>
+    </form>
+</div>
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const passwordValidationMsg = document.getElementById('password-validation');
+
+    passwordInput.addEventListener('keyup', function() {
+        if (passwordInput.value.length < 8) {
+            passwordValidationMsg.style.display = 'block';
+        } else {
+            passwordValidationMsg.style.display = 'none';
+        }
+    });
+
+    function validateForm() {
+        if (passwordInput.value.length < 8) {
+            alert('Password must be at least 8 characters long.');
+            return false;
+        }
+        return true;
+    }
+</script>
+{% endblock %}

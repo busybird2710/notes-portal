@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Notes Portal{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome to Your Notes Portal</h1>
+        <p>Your journey to organized learning starts here. Share and discover a world of knowledge!</p>
+    </div>
+</div>
+
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search for notes by title or topic...">
+</div>
+
+<div class="notes-grid">
+    {% for note in notes %}
+    <div class="note-card">
+        <img src="https://images.unsplash.com/photo-1456324504430-43c2ef4fd917" alt="Note Image" class="card-image">
+        <h3>{{ note.title }}</h3>
+        <p>Topic: {{ note.topic }}</p>
+        <a href="{{ url_for('download', filename=note.filename) }}">Download</a>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        let filter = this.value.toLowerCase();
+        let notes = document.querySelectorAll('.note-card');
+        notes.forEach(note => {
+            let title = note.querySelector('h3').textContent.toLowerCase();
+            let topic = note.querySelector('p').textContent.toLowerCase();
+            if (title.includes(filter) || topic.includes(filter)) {
+                note.style.display = 'flex';
+            } else {
+                note.style.display = 'none';
+            }
+        });
+    });
+</script>
+{% endblock %}

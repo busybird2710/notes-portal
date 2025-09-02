@@ -1,0 +1,344 @@
+/* General Body and Typography */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #043072;
+    color: #000000;
+    line-height: 1.6;
+    /* NEW: Subtle background image for a modern look */
+    background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4cd085');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-color: rgb(255, 255, 255);
+}
+
+/* Import Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Header and Navigation Bar */
+header {
+    background-color: #d0ff00;
+    border-bottom: 1px solid #000000;
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgb(0, 0, 0);
+}
+
+.logo {
+    /* NEW: Logo styling */
+    height: 60px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* NEW: Hero Section Styling for Homepage */
+.hero-section {
+    position: relative;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-image: url('https://images.unsplash.com/photo-1510519138101-570d1dca3d6b');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 3rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 153, 0);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    font-weight: 400;
+}
+
+/* Main Content and Container */
+main {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Flash Messages (Alerts) */
+.flashes {
+    margin: 1.5rem 0;
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #33ff00;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #ff0019;
+    border: 1px solid #f5c6cb;
+}
+
+/* -------------------- Home Page -------------------- */
+.search-container {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#searchInput {
+    padding: 0.9rem 1.5rem;
+    width: 70%;
+    max-width: 600px;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(223, 219, 219, 0.05);
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: #0075f1;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.note-card {
+    background-color: #fffb009a;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(162, 0, 255, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.note-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgb(0, 0, 0);
+}
+
+/* NEW: Style for images inside note cards */
+.note-card .card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.note-card h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.note-card p {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    flex-grow: 1;
+}
+
+.note-card a {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+}
+
+.note-card a:hover {
+    background-color: #00b300;
+}
+
+/* -------------------- Auth and Upload Forms -------------------- */
+.auth-container, .upload-container {
+    max-width: 450px;
+    margin: 4rem auto;
+    padding: 2.5rem;
+    background-color: #ffbb00;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgb(0, 0, 0);
+}
+
+.auth-container h2, .upload-container h2 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-weight: bold;
+    color: #000000;
+}
+
+form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+form button {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.validation-message {
+    font-size: 0.85rem;
+    color: #e74c3c;
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+    display: none; /* Initially hidden */
+}
+
+/* -------------------- Social Login Styles -------------------- */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #999;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.divider:not(:empty)::before {
+    margin-right: .5em;
+}
+
+.divider:not(:empty)::after {
+    margin-left: .5em;
+}
+
+.social-login-options {
+    text-align: center;
+}
+
+.social-login-options p {
+    margin-bottom: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.social-btn {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.social-btn img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}

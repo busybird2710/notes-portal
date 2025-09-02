@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Register - Notes Portal{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Create an Account</h2>
+    <form action="{{ url_for('register') }}" method="post" onsubmit="return validateForm()">
+        <label for="username">Phone Number:</label>
+        <input type="tel" id="username" name="username" placeholder="+15551234567" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <p class="validation-message" id="password-validation">
+            Password must be at least 8 characters long.
+        </p>
+        <button type="submit">Create Account</button>
+    </form>
+
+    <div class="divider">
+        <span>OR</span>
+    </div>
+
+    <div class="social-login-options">
+        <p>Continue with a different option</p>
+        <a href="{{ url_for('login_google') }}" class="social-btn google-btn">
+            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Logo">
+            Google
+        </a>
+        <a href="{{ url_for('register_email') }}" class="social-btn mail-btn">
+            <img src="https://img.icons8.com/color/48/000000/gmail--v1.png" alt="Gmail Logo">
+            Continue with Mail
+        </a>
+    </div>
+</div>
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const passwordValidationMsg = document.getElementById('password-validation');
+
+    passwordInput.addEventListener('keyup', function() {
+        if (passwordInput.value.length < 8) {
+            passwordValidationMsg.style.display = 'block';
+        } else {
+            passwordValidationMsg.style.display = 'none';
+        }
+    });
+
+    function validateForm() {
+        if (passwordInput.value.length < 8) {
+            alert('Password must be at least 8 characters long.');
+            return false;
+        }
+        return true;
+    }
+</script>
+{% endblock %}
