@@ -1,6 +1,0 @@
-# render.yaml
-builds:
-  - name: my-flask-app
-    build_command: "pip install -r requirements.txt"
-    docker:
-      build_command: "apt-get update && apt-get install -y portaudio19-dev && pip install -r requirements.txt"

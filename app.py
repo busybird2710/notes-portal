@@ -11,7 +11,7 @@ from sqlalchemy.orm.exc import NoResultFound
 # Create a new Flask application instance
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24).hex()
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/notes_portal'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://dbpgf15365894:1etzU9iX~r]DLGfUMG3D6w@serverless-europe-west2.sysp0000.db2.skysql.com:4011/dbpgf15365894'
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -21,8 +21,8 @@ db = SQLAlchemy(app)
 # Register Google OAuth client
 # Use environment variables to handle client ID and secret securely
 google_bp = make_google_blueprint(
-    client_id=os.getenv('GOOGLE_CLIENT_ID'),
-    client_secret=os.getenv('GOOGLE_CLIENT_SECRET'),
+    client_id=os.getenv('608148768763-0501gdu16rdulen9ots128mrqdfp1plu.apps.googleusercontent.com'),
+    client_secret=os.getenv('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'),
     server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
     scope=['openid', 'email', 'profile']
 )
